@@ -1,0 +1,8 @@
+exportPattern("^[[:alpha:]]+")
+
+importFrom("stats", "binomial", "coef", "glm", "rgamma", "rnorm",
+             "runif", "vcov", "dgamma", "rbeta", "model.matrix")
+
+importFrom("ghyp", rgig)
+
+importFrom("Rfast", standardise)

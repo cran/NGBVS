@@ -1,0 +1,11 @@
+eea297eb5fba6c978d0be4f69aa56b1c *DESCRIPTION
+3b1a24e6f2043d524a6b3de9cbf062da *NAMESPACE
+cefa9d317bfbbfc1c4e84bb1e3e4f016 *R/asym_m_ng.R
+9371d92489cc28e3102a60af6dfce66e *R/asym_s_ng.R
+e7302a11077197eeba1da2b2d710d8b1 *R/m_ng.R
+6c729389ee8a52ff189de575f3053efe *R/s_ng.R
+5c175c74574ef929a3ea9292a43c7d04 *man/NG-package.Rd
+8c286f6166855ee96a53306f42df6897 *man/asym_m_ng.Rd
+0cbf5f111b23e1c34c67a5d9cd1458d2 *man/asym_s_ng.Rd
+527447a6a8f7af97ff8819cb84c64ac5 *man/m_ng.Rd
+20604ec9f28534c46900975825d04804 *man/s_ng.Rd
