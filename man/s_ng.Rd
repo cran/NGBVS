@@ -59,7 +59,7 @@ A vector of the posterior distribution of \eqn{\gamma^2}.
 \author{
 Abulaziz Alenazi
 
-R implementation and documentation: Abulaziz Alenazi <a.alenazi@nbu.edu.sa>
+R implementation and documentation: Abulaziz Alenazi \email{a.alenazi@nbu.edu.sa}.
 }
 
 \examples{

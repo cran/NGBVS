@@ -62,7 +62,7 @@ asym_s_ng <- function(y, data,  medstar = 1, numb = 100, burnin = 1, every = 1 )
             psi[j] <- rgamma( 1, lambda[j] - 0.5, scale = 2 * gammasq)
             u <- runif(1)
             check <- as.numeric( u < exp(-0.5 * beta[j]^2 / psi[j] ) ) } }
-      } else psi[j] <- ghyp::rgig( 1, lambda[j] -0.5, beta[j]^2, 1 / gammasq )
+      } else psi[j] <- rgig( 1, lambda[j] -0.5, beta[j]^2, 1 / gammasq )
 	  } ## end for (j in 1:p)
     #psi[psi>1e+7]=1e+7
     psi[psi < 1e-10 & psi != 0 ] <- 1e-10

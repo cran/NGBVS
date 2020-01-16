@@ -8,7 +8,7 @@ asym_m_ng <- function(y, data, FS, medstar = c(0.01,0.0001), numb = 100, burnin 
   group <- list( g1, g2, g3, g4 )   ##### Create list for the 4 Groups
   n.g <- length( group )
   len_group <- rep( 0,  n.g )
-  for ( i in 1:n.g ) len_group[i] = length( group[[i]] )     #### number of SNPs in each Group
+  for ( i in 1:n.g ) len_group[i] <- length( group[[i]] )     #### number of SNPs in each Group
 
 
   x <- Rfast::standardise( as.matrix( data ) )
@@ -16,7 +16,6 @@ asym_m_ng <- function(y, data, FS, medstar = c(0.01,0.0001), numb = 100, burnin 
   betas <- as.vector( mod$coefficients )
   covs <- vcov( mod )
   solvecovs <- solve( covs, tol = 1e-30 )
-
 
   dm <- dim(x)
   n <- dm[1]   ;   p <- dm[2]
@@ -81,7 +80,7 @@ asym_m_ng <- function(y, data, FS, medstar = c(0.01,0.0001), numb = 100, burnin 
             psi[j] <- rgamma( 1, LAMBDA[j] - 0.5, scale = 2 * GAMMASQ[j] )
             u <- runif( 1 )
             check <- as.numeric( u < exp( - 0.5 * beta[j]^2 / psi[j] ) ) } }
-      } else { psi[j] <- ghyp::rgig( 1, LAMBDA[j] - 0.5, beta[j]^2, 1 / GAMMASQ[j] ) }
+      } else { psi[j] <- rgig( 1, LAMBDA[j] - 0.5, beta[j]^2, 1 / GAMMASQ[j] ) }
     } ### end for (j in 1:p )
 
     #psi[psi>1e+4]=1e+4
@@ -110,12 +109,12 @@ asym_m_ng <- function(y, data, FS, medstar = c(0.01,0.0001), numb = 100, burnin 
       }
       ################### Updating gamma^2 for each Group #######
 
-      if(g == 1){
+      if (g == 1) {
 
         sha[g] <- 0.5 * sum( psi[group[[g]]] ) + medstar[1] / ( 2 * lambdastar[g] )
         gammasq[g] <- 1 / rgamma( 1, sum( unlist( lambda[[g]] ) ) + 2, scale = 1 / sha[g] )
 
-      }else if (g == 2) {
+      } else if (g == 2) {
         A <- 0.5 * sum( psi[group[[g]]] ) + medstar[1] / ( 2 * lambdastar[g] )
         B <- 0.5 * sum( psi[group[[g]]] ) + medstar[2] / ( 2 * lambdastar[g] )
         delta1 <- ( w * ( medstar[1])^2 ) / ( ( w * ( medstar[1])^2 ) + ( ( A / B )^( len_group[g] * lambdastar[g] + 2 ) * ( 1 - w ) * ( medstar[2])^2 )   )
@@ -123,15 +122,15 @@ asym_m_ng <- function(y, data, FS, medstar = c(0.01,0.0001), numb = 100, burnin 
         if ( U < delta1 ) {
           sha[g] <- 0.5 * sum( psi[group[[g]]] ) + medstar[1] / ( 2 * lambdastar[g] )
           gammasq[g] <- 1 / rgamma( 1, sum( unlist( lambda[[g]] ) ) + 2, scale = 1 / sha[g] )
-        }else{
+        } else {
           sha[g] <- 0.5 * sum( psi[group[[g]]] ) + medstar[2] / ( 2 * lambdastar[g] )
           gammasq[g] <- 1 / rgamma( 1, sum( unlist( lambda[[g]] ) ) + 2, scale = 1 / sha[g] )
         }
-      }else if (g == 3){
+      } else if (g == 3) {
         sha[g] <- 0.5 * sum( psi[group[[g]]] ) + medstar[2] / ( 2 * lambdastar[g] )
         gammasq[g] <- 1 / rgamma( 1, sum( unlist( lambda[[g]] ) ) + 2, scale = 1 / sha[g] )
 
-      }else{
+      } else {
         A <- 0.5 * sum( psi[group[[g]]] ) + medstar[1] / ( 2 * lambdastar[g] )
         B <- 0.5 * sum( psi[group[[g]]] ) + medstar[2] / ( 2 * lambdastar[g] )
         delta2 <- ( h * ( medstar[1])^2 ) / ( ( h * (medstar[1])^2 ) + ( ( A / B )^(len_group[g] * lambdastar[g] + 2) * ( 1 - h ) * ( medstar[2])^2 )   )
@@ -139,7 +138,7 @@ asym_m_ng <- function(y, data, FS, medstar = c(0.01,0.0001), numb = 100, burnin 
         if (U < delta2) {
           sha[g] <- 0.5 * sum( psi[group[[g]]] ) + medstar[1] / ( 2 * lambdastar[g] )
           gammasq[g] <- 1 / rgamma( 1, sum( unlist( lambda[[g]] ) ) + 2, scale = 1 / sha[g] )
-        }else{
+        } else {
           sha[g] <- 0.5 * sum( psi[group[[g]]] ) + medstar[2] / ( 2 * lambdastar[g] )
           gammasq[g] <- 1 / rgamma( 1, sum( unlist( lambda[[g]] ) ) + 2, scale = 1 / sha[g] )
         }
@@ -160,7 +159,7 @@ asym_m_ng <- function(y, data, FS, medstar = c(0.01,0.0001), numb = 100, burnin 
     delta3 <- A / ( A + B )
     if ( U < delta3 ) {
       w <- rbeta( 1, 3, 2 )
-    }else{
+    } else {
       w <- rbeta( 1, 2, 3 )
     }
 
@@ -174,7 +173,7 @@ asym_m_ng <- function(y, data, FS, medstar = c(0.01,0.0001), numb = 100, burnin 
     delta4 <- A / ( A + ( 4 * B ) )
     if ( U < delta4 ) {
       h <- rbeta( 1, 2, 4 )
-    }else{
+    } else {
       h <- rbeta( 1, 1, 5 )
     }
 
