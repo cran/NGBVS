@@ -2,7 +2,7 @@
 % Please edit documentation in R/sng.R
 \name{m_ng}
 \alias{m_ng}
-\title{Modified NG prior via FS scores.}
+\title{Modified NG prior via FS scores}
 \description{
 Modified Normal Gammp prior calculates the posterior distribution for the fine mapping study.
 The number of individuals must be greater than the number of SNPs.
@@ -16,7 +16,8 @@ m_ng (y, data, FS, medstar = c(0.01, 0.0001),  numb = 100, burnin = 1, every = 1
 A vector of the pheontype.
 }
 \item{data}{
-An \eqn{N \times p} finemap data, where \eqn{N} and \eqn{p} denote the samples and number of SNPs respectively.
+An \eqn{N \times p} finemap data, where \eqn{N} and \eqn{p} denote the samples
+and number of SNPs respectively.
 }
 \item{FS}{
 FS scores for each SNP and it takes value from 0 and 1 or NA for missing FS.
@@ -54,17 +55,17 @@ A vector of the posterior distribution of \eqn{\lambda}.
 \item{gammasq}{
 A vector of the posterior distribution of \eqn{\gamma^2}.
 }
-\item{\eqn{W}}{
+\item{W}{
 A vector of the posterior distribution of \eqn{W}.
 }
-\item{\eqn{H}}{
+\item{H}{
 A vector of the posterior distribution of \eqn{H}.
 }
 }
 
 
 \author{
-Abulaziz Alenazi
+Abulaziz Alenazi.
 
 R implementation and documentation: Abulaziz Alenazi \email{a.alenazi@nbu.edu.sa}.
 }

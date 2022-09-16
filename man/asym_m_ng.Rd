@@ -2,7 +2,7 @@
 % Please edit documentation in R/sng.R
 \name{asym_m_ng}
 \alias{asym_m_ng}
-\title{Modified NG prior via FS scores.}
+\title{Modified NG prior via FS scores}
 \description{
 Modified Normal Gamma prior calculates the posterior distribution for the fine mapping cases-controls study.
 The number of case-controls must be greater than the number of SNPs.
@@ -15,7 +15,8 @@ asym_m_ng (y, data, FS, medstar = c(0.01, 0.0001), numb = 100, burnin = 1, every
 A vector of the pheontype, where takes 0s and 1s.
 }
 \item{data}{
-An \eqn{N \times p} finemap data, where \eqn{N} and \eqn{p} denote the samples and number of SNPs respectively.
+An \eqn{N \times p} finemap data, where \eqn{N} and \eqn{p} denote the samples
+and number of SNPs respectively.
 }
 \item{FS}{
 FS scores for each SNP and it takes value from 0 and 1 or NA for missing FS.
@@ -50,18 +51,16 @@ A vector of the posterior distribution of \eqn{\lambda}.
 \item{gammasq}{
 A vector of the posterior distribution of \eqn{\gamma^2}.
 }
-\item{\eqn{W}}{
+\item{W}{
 A vector of the posterior distribution of \eqn{W}.
 }
-\item{\eqn{H}}{
+\item{H}{
 A vector of the posterior distribution of \eqn{H}.
 }
 }
 
-
-
 \author{
-Abulaziz Alenazi
+Abulaziz Alenazi.
 
 R implementation and documentation: Abulaziz Alenazi \email{a.alenazi@nbu.edu.sa}.
 }
@@ -69,7 +68,7 @@ R implementation and documentation: Abulaziz Alenazi \email{a.alenazi@nbu.edu.sa
 \examples{
 set.seed(1)
 data <- matrix(sample( c( 0, 1, 2 ), 500 * 30, replace = TRUE,
-prob = c( 0.35, 0.35, 0.3)), ncol = 30)
+prob <- c( 0.35, 0.35, 0.3)), ncol = 30 )
 FS <- sample( c( 0.1, 0.5, 0.7, NA ), ncol( data ), replace = TRUE)
 asym_m_ng(y = rbinom(500, 1, 0.5), data = data, FS = FS)
 }

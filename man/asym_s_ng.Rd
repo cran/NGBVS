@@ -2,7 +2,7 @@
 % Please edit documentation in R/sng.R
 \name{asym_s_ng}
 \alias{asym_s_ng}
-\title{Standard NG prior.}
+\title{Standard NG prior}
 \description{
 Standard Normal Gammp prior calculates the posterior distribution for the fine mapping cases-controls study.
 The number of case-controls must be greater than the number of SNPs.
@@ -51,10 +51,8 @@ A vector of the posterior distribution of \eqn{\gamma^2}.
 }
 }
 
-
-
 \author{
-Abulaziz Alenazi
+Abulaziz Alenazi.
 
 R implementation and documentation: Abulaziz Alenazi \email{a.alenazi@nbu.edu.sa}.
 }

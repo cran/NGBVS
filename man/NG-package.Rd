@@ -11,8 +11,8 @@ The NGBVS package provides posterior distribution of case-control fine-mapping. 
 \tabular{ll}{
 Package: \tab NG\cr
 Type: \tab Package\cr
-Version: \tab 0.2.0 \cr
-Date: \tab 2020-01-16\cr
+Version: \tab 0.3.0 \cr
+Date: \tab 2022-09-112\cr
 License: \tab GPL-2\cr
 }
 }

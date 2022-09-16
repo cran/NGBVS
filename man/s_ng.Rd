@@ -2,7 +2,7 @@
 % Please edit documentation in R/sng.R
 \name{s_ng}
 \alias{s_ng}
-\title{Standard NG prior.}
+\title{Standard NG prior}
 \description{
 Standard Normal Gammp prior calculates the posterior distribution for the fine mapping study.
 The number of individuals must be greater than the number of SNPs.
@@ -16,7 +16,8 @@ s_ng(y, data, medstar = 1, numb = 100, burnin = 1, every = 1)
 A vector of the pheontype.
 }
 \item{data}{
-An \eqn{N \times p} finemap data, where \eqn{N} and \eqn{p} denote the samples and number of SNPs respectively.
+An \eqn{N \times p} finemap data, where \eqn{N} and \eqn{p} denote the
+samples and number of SNPs respectively.
 }
 \item{medstar}{
 The value of M.
@@ -55,15 +56,14 @@ A vector of the posterior distribution of \eqn{\gamma^2}.
 }
 
 
-
 \author{
-Abulaziz Alenazi
+Abulaziz Alenazi.
 
 R implementation and documentation: Abulaziz Alenazi \email{a.alenazi@nbu.edu.sa}.
 }
 
 \examples{
-set.seed( 1 )
-data <- matrix(rnorm(500 * 30), ncol = 30)
+set.seed(1)
+data <- matrix( rnorm(500 * 30), ncol = 30)
 s_ng(y = rnorm(500), data = data)
 }
